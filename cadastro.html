@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - Show do Milhão</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 min-h-screen flex items-center justify-center text-white">
+
+  <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-sm">
+    <h2 class="text-2xl font-bold mb-6 text-center">📝 Cadastro</h2>
+
+    <form id="formCadastro" action="cadastro.php" method="POST" class="space-y-4" onsubmit="return validarFormulario()">
+      <div>
+        <label for="nome" class="block text-sm font-medium mb-1">Nome</label>
+        <input type="text" id="nome" name="nome" required
+               class="w-full px-4 py-2 rounded-xl bg-white/20 text-white placeholder-white/70"
+               placeholder="Seu nome completo">
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium mb-1">E-mail</label>
+        <input type="email" id="email" name="email" required
+               class="w-full px-4 py-2 rounded-xl bg-white/20 text-white placeholder-white/70"
+               placeholder="Digite um e-mail válido">
+      </div>
+
+      <div>
+        <label for="senha" class="block text-sm font-medium mb-1">Senha</label>
+        <input type="password" id="senha" name="senha" required minlength="5"
+               class="w-full px-4 py-2 rounded-xl bg-white/20 text-white placeholder-white/70"
+               placeholder="Mínimo 5 caracteres">
+      </div>
+
+      <div>
+        <label for="confirma_senha" class="block text-sm font-medium mb-1">Confirme a Senha</label>
+        <input type="password" id="confirma_senha" required
+               class="w-full px-4 py-2 rounded-xl bg-white/20 text-white placeholder-white/70"
+               placeholder="Repita a senha">
+      </div>
+
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6Lc49GgrAAAAAGy-zNAwrBOeubq1feMQQoAB3Kw1"></div>
+
+      <button type="submit"
+              class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded-xl transition-all">
+        Cadastrar
+      </button>
+    </form>
+
+    <p class="mt-6 text-center text-sm text-white/80">
+      Já tem conta?
+      <a href="login.html" class="text-yellow-300 hover:underline">Faça login</a>
+    </p>
+  </div>
+
+  <script>
+    function validarFormulario() {
+      const senha = document.getElementById("senha").value;
+      const confirma = document.getElementById("confirma_senha").value;
+
+      // Requisitos de senha
+      const regex = /^(?=.*[A-Za-z])(?=.*\d).{5,}$/;
+
+      if (!regex.test(senha)) {
+        alert("A senha deve conter pelo menos 5 caracteres e incluir letras e números.");
+        return false;
+      }
+
+      if (senha !== confirma) {
+        alert("As senhas não coincidem.");
+        return false;
+      }
+
+      if (grecaptcha.getResponse() === "") {
+        alert("Confirme que você não é um robô.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>

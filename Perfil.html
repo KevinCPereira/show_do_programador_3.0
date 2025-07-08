@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Jogador</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #1e1e2f;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .perfil-container {
+      max-width: 800px;
+      width: 100%;
+      margin: 30px;
+      padding: 20px;
+      background: #2c2c3f;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .perfil-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+
+    .info {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    h2, h3 {
+      color: #9f7aea;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="perfil-container">
+    <div class="perfil-header">
+      <h2>Perfil do Jogador</h2>
+      <p>Nome: <strong>João da Silva</strong></p>
+      <p>E-mail: <strong>joao@email.com</strong></p>
+    </div>
+
+    <h3>Desempenho por Área</h3>
+    <canvas id="graficoDesempenho"></canvas>
+
+    <div class="info">
+      <p>Total de perguntas respondidas: <strong>80</strong></p>
+      <p>Acertos totais: <strong>62</strong></p>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('graficoDesempenho');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Lógica de Programação', 'Matemática Básica', 'Raciocínio Lógico',
+          'Algoritmos', 'Programação', 'Banco de Dados', 'Redes',
+          'Arquitetura', 'Sistemas Operacionais', 'História da Computação'
+        ],
+        datasets: [{
+          label: 'Acertos',
+          data: [10, 7, 8, 6, 9, 5, 4, 6, 4, 3],
+          backgroundColor: 'rgba(159, 122, 234, 0.7)',
+          borderColor: 'rgba(159, 122, 234, 1)',
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#fff'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#fff'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#fff'
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

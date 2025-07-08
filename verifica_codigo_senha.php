@@ -1,0 +1,24 @@
+<?php
+$email = $_GET['email'] ?? '';
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verificar Código</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 min-h-screen flex items-center justify-center text-white">
+  <form action="nova_senha.php" method="POST" class="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-2xl max-w-sm w-full">
+    <h2 class="text-2xl font-bold mb-6 text-center">📩 Verificar Código</h2>
+
+    <input type="hidden" name="email" value="<?= htmlspecialchars($email) ?>">
+
+    <label class="block mb-2">Código recebido no e-mail:</label>
+    <input type="text" name="codigo" required class="w-full px-4 py-2 rounded-xl bg-white/20 text-white placeholder-white/70 mb-4">
+
+    <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 rounded-xl">Verificar</button>
+  </form>
+</body>
+</html>

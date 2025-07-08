@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recordes - Show do Milhão</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 min-h-screen text-white flex flex-col items-center justify-center p-4">
+
+  <h1 class="text-3xl font-bold mb-6">🏆 Recordes dos Jogadores</h1>
+
+  <div class="w-full max-w-2xl bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl overflow-auto">
+    <table class="w-full text-center table-auto">
+      <thead>
+        <tr class="text-yellow-300 font-bold text-lg">
+          <th class="py-3">#</th>
+          <th>Nome</th>
+          <th>Pontuação</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody class="text-white text-base">
+        <!-- Exemplo de dados fictícios -->
+        <tr class="border-t border-white/20 hover:bg-white/10 transition">
+          <td class="py-3">1</td>
+          <td>João Silva</td>
+          <td>9.000</td>
+          <td>07/05/2025</td>
+        </tr>
+        <tr class="border-t border-white/20 hover:bg-white/10 transition">
+          <td class="py-3">2</td>
+          <td>Ana Costa</td>
+          <td>8.500</td>
+          <td>06/05/2025</td>
+        </tr>
+        <tr class="border-t border-white/20 hover:bg-white/10 transition">
+          <td class="py-3">3</td>
+          <td>Carlos Mendes</td>
+          <td>8.200</td>
+          <td>05/05/2025</td>
+        </tr>
+        <!-- Você poderá preencher isso dinamicamente via PHP ou JS depois -->
+      </tbody>
+    </table>
+  </div>
+
+  <a href="telaInicial.php" class="mt-6 text-yellow-300 hover:underline">← Voltar ao início</a>
+
+</body>
+</html>
